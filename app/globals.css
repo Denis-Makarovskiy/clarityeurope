@@ -17,33 +17,41 @@
      available as bg-, text- and border- color utilities (prevents e.g. bg-red-500). */
   --color-*: initial;
 
-  /* ---- color.navy ---- */
-  --color-navy-950: #071a2d;
-  --color-navy-900: #0b2540;
-  --color-navy-800: #123a60;
-  --color-navy-700: #1a4e7a;
+  /* Clarity Europe palette — deliberately NOT the sister brand's navy+gold.
+     That palette reads "premium clinic"; this brand is about calm and
+     recovery of clarity, so the deep tone is a forest/eucalyptus green and
+     the accent a warm clay. Token NAMES are kept ("navy", "gold") so every
+     component re-skins without edits — read them as "deep surface" and
+     "accent". Contrast checked against white: deep-950/900/800 all exceed
+     7:1, accent-500 on deep-950 exceeds 4.5:1. */
 
-  /* ---- color.gold ---- */
-  --color-gold-600: #b9893d;
-  --color-gold-500: #cda55f;
-  --color-gold-300: #e5c996;
-  --color-gold-100: #f6eedc;
+  /* ---- color.navy → deep forest ---- */
+  --color-navy-950: #0e211c;
+  --color-navy-900: #17332b;
+  --color-navy-800: #234a3e;
+  --color-navy-700: #326354;
 
-  /* ---- color.neutral ---- */
-  --color-ink: #15202b;
-  --color-slate-700: #4d5b6a;
-  --color-slate-500: #728091;
-  --color-slate-300: #c9d0d8;
-  --color-slate-200: #e1e6eb;
-  --color-slate-100: #f1f4f7;
-  --color-off-white: #f8fafc;
+  /* ---- color.gold → warm clay ---- */
+  --color-gold-600: #b9714e;
+  --color-gold-500: #d18f6c;
+  --color-gold-300: #e8b99f;
+  --color-gold-100: #f7ebe2;
+
+  /* ---- color.neutral (warmed to match) ---- */
+  --color-ink: #1c211f;
+  --color-slate-700: #55605b;
+  --color-slate-500: #7c8781;
+  --color-slate-300: #ccd3cf;
+  --color-slate-200: #e3e8e5;
+  --color-slate-100: #f2f5f3;
+  --color-off-white: #f9fbfa;
   --color-white: #ffffff;
 
   /* ---- color.semantic ---- */
   --color-success: #2f7a5c;
   --color-warning: #a56a21;
   --color-error: #b64040;
-  --color-focus: rgba(205, 165, 95, 0.35);
+  --color-focus: rgba(209, 143, 108, 0.35);
 
   /* CSS-level keywords Tailwind's utilities depend on regardless of palette. */
   --color-transparent: transparent;
@@ -104,9 +112,9 @@
 
   /* ---- shadow ---- */
   --shadow-*: initial;
-  --shadow-card-low: 0 8px 24px rgba(7, 26, 45, 0.08);
-  --shadow-card-high: 0 20px 60px rgba(7, 26, 45, 0.14);
-  --shadow-header: 0 4px 18px rgba(7, 26, 45, 0.06);
+  --shadow-card-low: 0 8px 24px rgba(14, 33, 28, 0.08);
+  --shadow-card-high: 0 20px 60px rgba(14, 33, 28, 0.14);
+  --shadow-header: 0 4px 18px rgba(14, 33, 28, 0.06);
 
   /* ---- breakpoint ---- */
   --breakpoint-*: initial;
@@ -142,9 +150,9 @@
   --space-128: 128px;
 
   /* ---- border ---- */
-  --border-default: 1px solid #e1e6eb;
-  --border-interactive: 1px solid #c9d0d8;
-  --border-selected: 1.5px solid #b9893d;
+  --border-default: 1px solid #e3e8e5;
+  --border-interactive: 1px solid #ccd3cf;
+  --border-selected: 1.5px solid #b9714e;
   --border-focus-ring-width: 3px;
 
   /* ---- size ---- */
