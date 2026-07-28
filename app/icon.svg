@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!--
+    Favicon: the Clarity Europe aperture/focus mark (components/ui/BrandMark.tsx)
+    on a solid navy background, so it reads correctly at 16-32px. Colors:
+    navy-900 / gold-500 from app/globals.css's design tokens.
+  -->
+  <rect width="100" height="100" fill="#0B2540" />
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#CDA55F" stroke-width="8" />
+  <circle cx="64" cy="38" r="20" fill="#CDA55F" />
+</svg>
