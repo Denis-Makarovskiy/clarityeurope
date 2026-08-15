@@ -77,7 +77,7 @@ Optional:
 | `NEXT_PUBLIC_ADMISSIONS_PHONE` | Overrides the phone number baked into `lib/constants.ts`. |
 | `NEXT_PUBLIC_SCHEDULER_URL` | External call-scheduling URL; falls back to the on-page assessment section if unset. |
 | `NEXT_PUBLIC_GA_ID` | GA4 measurement ID; analytics is a no-op if unset. |
-| `NEXT_PUBLIC_YM_ID` | Yandex Metrica counter number; Metrica is a no-op if unset. |
+| `NEXT_PUBLIC_YM_ID` | Overrides the Yandex Metrica counter (`111638009`) baked into `lib/analytics.ts` — e.g. a staging counter. Set it to `0` to build without Metrica. |
 | `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Google Search Console HTML-tag verification content. |
 | `NEXT_PUBLIC_YANDEX_VERIFICATION` | Yandex Webmaster meta-tag verification content. |
 

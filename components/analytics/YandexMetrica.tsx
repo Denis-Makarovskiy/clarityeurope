@@ -4,10 +4,14 @@ import Script from "next/script";
 import { YM_ID, IS_YM_CONFIGURED } from "@/lib/analytics";
 
 /**
- * Yandex Metrica counter. Renders nothing (no script, no noscript pixel)
- * when `NEXT_PUBLIC_YM_ID` is unset — mirrors the GA4 wiring in
+ * Yandex Metrica counter (number 111638009, defaulted in lib/analytics.ts).
+ * Renders nothing — no script, no noscript pixel — when the counter is
+ * disabled via `NEXT_PUBLIC_YM_ID=0`, mirroring the GA4 wiring in
  * `app/layout.tsx`, which only mounts its scripts when
  * `IS_ANALYTICS_CONFIGURED` is true.
+ *
+ * The init options below are the owner-supplied snippet from the Metrica
+ * dashboard, with one deliberate deviation: `webvisor: false`.
  *
  * `webvisor` is deliberately hard-coded to `false` and must stay that way:
  * Webvisor records session replay, including keystrokes typed into form
@@ -27,16 +31,18 @@ export function YandexMetrica() {
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
-          })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+          })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=${YM_ID}", "ym");
 
           ym(${YM_ID}, "init", {
-            defer: true,
+            ssr: true,
             clickmap: true,
-            trackLinks: true,
+            ecommerce: "dataLayer",
+            referrer: document.referrer,
+            url: location.href,
             accurateTrackBounce: true,
+            trackLinks: true,
             // Deliberately false — see the module-level comment above.
-            webvisor: false,
-            trackHash: true
+            webvisor: false
           });
         `}
       </Script>

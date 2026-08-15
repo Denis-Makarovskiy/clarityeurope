@@ -4,8 +4,9 @@
     {
       "name": "clarity",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "serve", "out", "-l", "3100"],
-      "port": 3100
+      "runtimeArgs": ["-y", "serve", "out"],
+      "port": 3100,
+      "autoPort": true
     }
   ]
 }

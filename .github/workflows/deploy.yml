@@ -46,7 +46,9 @@ jobs:
           #   NEXT_PUBLIC_ADMISSIONS_PHONE  real admissions phone number
           #   NEXT_PUBLIC_SCHEDULER_URL     external scheduler URL
           #   NEXT_PUBLIC_GA_ID             GA4 measurement ID (optional)
-          #   NEXT_PUBLIC_YM_ID             Yandex Metrica counter number (optional)
+          #   NEXT_PUBLIC_YM_ID             overrides the Yandex Metrica counter
+          #                               baked into lib/analytics.ts (optional;
+          #                               set to "0" to build without Metrica)
           #   NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION  Google Search Console HTML
           #                               tag verification content (optional)
           #   NEXT_PUBLIC_YANDEX_VERIFICATION       Yandex Webmaster meta tag
