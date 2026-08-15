@@ -12,8 +12,8 @@
  * - When `NEXT_PUBLIC_GA_ID` is unset, or `window.gtag` is unavailable
  *   (e.g. server-side, ad blockers, before the script loads), every call
  *   is a no-op.
- * - Same rule for Yandex Metrica: when `NEXT_PUBLIC_YM_ID` is unset, or
- *   `window.ym` is unavailable, every call is a no-op.
+ * - Same rule for Yandex Metrica: when the counter is disabled (see
+ *   `YM_ID` below), or `window.ym` is unavailable, every call is a no-op.
  */
 
 declare global {
@@ -27,7 +27,19 @@ declare global {
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID?.trim() ?? "";
 export const IS_ANALYTICS_CONFIGURED = GA_ID.length > 0;
 
-export const YM_ID = process.env.NEXT_PUBLIC_YM_ID?.trim() ?? "";
+/**
+ * Yandex Metrica counter number.
+ *
+ * The real counter is baked in as the default (same approach as
+ * `DEFAULT_ADMISSIONS_PHONE` in lib/constants.ts) so the site is measured
+ * even when no repository variable is set. `NEXT_PUBLIC_YM_ID` overrides it
+ * — set it to a staging counter, or to "0"/an empty value to disable the
+ * counter for a given build. The number is public by design; it is visible
+ * in the page source of any site running Metrica.
+ */
+const DEFAULT_YM_ID = "111638009";
+const rawYmId = process.env.NEXT_PUBLIC_YM_ID?.trim() || DEFAULT_YM_ID;
+export const YM_ID = rawYmId === "0" ? "" : rawYmId;
 export const IS_YM_CONFIGURED = YM_ID.length > 0;
 
 export type AnalyticsEventName =
